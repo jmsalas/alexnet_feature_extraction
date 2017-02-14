@@ -23,15 +23,22 @@ if not isfile('train.p'):
             'https://s3.amazonaws.com/udacity-sdc/datasets/german_traffic_sign_benchmark/train.p',
             'train.p',
             pbar.hook)
-
+'''
 if not isfile('test.p'):
     with DLProgress(unit='B', unit_scale=True, miniters=1, desc='Test Dataset') as pbar:
         urlretrieve(
             'https://s3.amazonaws.com/udacity-sdc/datasets/german_traffic_sign_benchmark/test.p',
             'test.p',
             pbar.hook)
+'''
+if not isfile('bvlc-alexnet.npy'):
+    with DLProgress(unit='B', unit_scale=True, miniters=1, desc='AlexNet Weights') as pbar:
+        urlretrieve(
+            'https://d17h27t6h515a5.cloudfront.net/topher/2016/October/580d880c_bvlc-alexnet/bvlc-alexnet.npy',
+            'bvlc-alexnet.npy',
+            pbar.hook)
 
-print('Training and Test data downloaded.')
+print('Training and Weight data downloaded.')
 
 # TODO: Load traffic signs data.
 sign_names = pd.read_csv('signnames.csv')
